@@ -1,0 +1,472 @@
+/*
+===============
+Variables
+=============== 
+ */
+:root{
+    --primaryColor: #f15025;
+    --mainBlack: #222;
+    --mainWhite: #fff;
+    --offWhite: #f7f7f7;
+    --darkGray: #afafaf;
+    --mainTransition: all 0.3s linear;
+    --mainSpacing: 0.2rem;
+}
+
+/*
+===============
+Global Styles
+=============== 
+ */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Fira Code", monospace;
+    color: var(--mainBlack);
+    background: var(--mainWhite);
+    line-height: 1.5;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1,h2,h3{
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    margin-bottom: 1.25rem;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+p{
+    font-weight: 300;
+    font-size: 0.7rem;
+    line-height: 2;
+}
+
+/* button */
+.btn{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-transform: capitalize;
+    border: 3px solid var(--primaryColor);
+    color: var(--primaryColor);
+    margin: 3rem;
+    transition: var(--mainTransition);
+}
+
+.btn:hover{
+    background: var(--primaryColor);
+    color: var(--mainWhite);
+}
+
+/*
+===============
+Main Navbar
+=============== 
+*/
+
+.main-navbar{
+    background: var(--darkGray);
+    padding: 0 2rem;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.main-navbar a{
+    display: block;
+    font-size: 1rem;
+    padding: 1rem 0;
+    text-transform: capitalize;
+    color: var(--primaryColor);
+    letter-spacing: var(--mainSpacing);
+    transition: var(--mainTransition);
+}
+
+.main-navbar a:hover{
+    color: var(--mainBlack);
+}
+
+@media screen and (min-width:992px) {
+    .main-navbar ul{
+        max-width: 1170px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .main-navbar a{
+        text-align: center;
+    }
+    
+}
+
+
+/*
+===============
+Hero
+=============== 
+*/
+
+.hero-header{
+    min-height: 100vh;
+    background: var(--primaryColor);
+    color: var(--mainWhite);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-banner h1{
+    letter-spacing: var(--mainSpacing);
+}
+
+.hero-banner p {
+    font-size: 1rem;
+    color: var(--mainWhite);
+    width: 80%;
+    max-width: 560px;
+}
+
+.hero-banner{
+    max-width: 50rem;
+}
+
+
+@media screen and (min-width:768px) {
+    .hero-header{
+        background: linear-gradient(rgba(241, 80, 37, 0.45), rgba(0, 0, 0, 0.75)),
+            url("./images/size-image-2.jpeg") center/cover no-repeat fixed;
+    }
+    .hero-banner h1 {
+        font-size: 4rem;
+    }
+
+    .hero-banner p {
+        font-size: 1rem;
+    }
+    
+}
+
+
+/*
+===============
+Cards
+=============== 
+*/
+
+.title{
+    text-align: center;
+    width: 100%;
+    max-width: 50rem;
+    margin: 2rem auto;
+}
+
+.cards{
+    padding: 4rem 0;
+}
+
+.cards-center{
+    width: 80vw;
+    max-width: 1170px;
+    margin: 2rem auto;
+}
+
+.card{
+    border: solid 1px var(--darkGray);
+    margin-bottom: 3rem;
+}
+
+.card-info{
+    padding: 1rem;
+}
+
+.card-footer{
+    background: var(--darkGray);
+    color: var(--primaryColor);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem
+}
+
+/* == responsive using media queries == */
+
+/* @media screen and (min-width:768px) {
+    .cards-center {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+@media screen and (min-width:1170px) {
+    .cards-center {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+} */
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* == responsive using minmax()
+      and auto-fill == */
+
+/*
+1170 - 2*2rem = 1170 - 64 = 1106
+
+    we divide that by 3 :
+    1106/3 = 368.6667
+    
+    you may see that from inspect
+    of mozila
+*/
+.cards-center{
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fill,minmax(368px,1fr));
+
+    /* four column layout */
+    grid-template-columns: repeat(auto-fill, minmax(268.5px, 1fr));
+}
+
+
+
+/*
+===============
+Tiles
+=============== 
+*/
+
+.tile {
+    text-align: center;
+    width: 100%;
+    max-width: 50rem;
+    margin: 2rem auto;
+}
+
+.tiles{
+    /* height: 100vh; */
+    padding: 4rem 0;
+}
+
+.tiles-center {
+    width: 90vw;
+    max-width: 1170px;
+    margin: 2rem auto;
+    display: grid;
+    row-gap: 2rem;
+}
+
+
+@media screen and (min-width:768px) {
+    .tiles-center{
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }    
+}
+
+@media screen and (min-width:992px) {
+    .tiles-center {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width:1170px) {
+    .tile-1 {
+        grid-area: tile1;
+    }
+
+    .tile-2 {
+        grid-area: tile2;
+    }
+
+    .tile-3 {
+        grid-area: tile3;
+    }
+
+    .tile-4 {
+        grid-area: tile4;
+    }
+
+    .tile-5 {
+        grid-area: tile5;
+    }
+
+    .tile-6 {
+        grid-area: tile6;
+    }
+
+    .tile-7 {
+        grid-area: tile7;
+    }
+
+    .tile-8 {
+        grid-area: tile8;
+    }
+
+    .tile-9 {
+        grid-area: tile9;
+    }
+
+    .tiles-center{
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(5,200px);
+        grid-template-areas: 
+        "tile1 tile1 tile1 tile2"
+        "tile1 tile1 tile1 tile3"
+        "tile4 tile4 tile4 tile4"
+        "tile5 tile6 tile6 tile6"
+        "tile5 tile7 tile8 tile9";
+    }
+    .tiles img{
+        object-fit: cover;
+        height: 100%;
+    }
+}
+
+
+/*
+===============
+Layout
+=============== 
+ */
+
+.main{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    
+}
+
+.header{
+    text-align: center;
+    background: var(--primaryColor);
+    color: var(--mainWhite);
+    font-size: 1.1rem;
+    padding: 0.5rem 0rem;
+}
+
+.navbar{
+    background: var(--darkGray);
+    padding: 0 1.5rem;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 1rem ;
+    text-transform: capitalize;
+    color: var(--mainBlack);
+    letter-spacing: var(--mainSpacing);
+    transition: var(--mainTransition);
+}
+
+.navbar a:hover {
+    color: var(--mainWhite);
+}
+
+.content{
+    padding: 2rem;
+    
+}
+
+.content p{
+    font-size: 1rem;
+    /* margin: 0 auto;
+    min-height: 80vh; */
+}
+
+.sidebar{
+    background: var(--primaryColor);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    color: var(--mainWhite);
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+.footer{
+    background: var(--mainBlack);
+    color: var(--mainWhite);
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.5rem 0;
+}
+
+.footer p{
+    font-size: 1.2rem;
+}
+
+@media screen and (min-width:768px) {
+    .navbar ul{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        justify-items: center;
+    }
+}
+
+@media screen and (min-width:992px) {
+    
+    .main{
+        grid-template-columns: auto 1fr 50px;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .navbar ul {
+        grid-template-columns: 1fr;
+        align-items: center;
+        min-height: 100%;
+    }
+
+    .header {
+        grid-column: 1/4;
+    }
+
+    .navbar{
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .content {
+        grid-column: 2/3;
+    }
+
+    .sidebar {
+        grid-template-columns: 1fr;
+        grid-column: 3;
+        align-items: center;
+        min-height: 100%;
+        background: var(--darkGray)
+    }
+
+    .footer{
+        grid-column: 1/4;
+        grid-row: 3;
+    }
+
+}
